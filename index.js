@@ -3,6 +3,7 @@ import cors from "cors";
 import dns from "dns/promises";
 import net from "net";
 import smtpRoutes from "./routes/api.js"; // update path
+import { verifySMTP } from "./api/verify-smtp.js"; // ✅ adjust path if needed
 const app = express();
 app.use(express.json());
 app.use(cors());
