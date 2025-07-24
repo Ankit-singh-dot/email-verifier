@@ -13,7 +13,11 @@ function isValidEmailFormat(email) {
   return regex.test(email);
 }
 
-
+app.get("/", (req, res) => {
+  res.send({
+    activeStatus: true,
+  });
+});
 
 app.post("/verify", async (req, res) => {
   const { email } = req.body;
