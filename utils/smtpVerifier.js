@@ -38,7 +38,7 @@ export async function verifySMTP(email) {
   const sortedMx = mxRecords.sort((a, b) => a.priority - b.priority);
   const mxHost = sortedMx[0].exchange;
 
-  // ✅ Step 3: SMTP check
+
   return new Promise((resolve) => {
     const socket = net.createConnection(25, mxHost);
     let stage = 0;
