@@ -1,6 +1,6 @@
-import { verifySMTP } from '../utils/smtpVerifier.js';
+const { verifySMTP } = require('../utils/smtpVerifier.js');
 
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method Not Allowed' });
     return;
@@ -16,4 +16,4 @@ export default async function handler(req, res) {
   } catch (error) {
     res.status(500).json({ error: 'SMTP verification failed', detail: error.message });
   }
-} 
+}; 
