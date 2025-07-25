@@ -3,6 +3,8 @@ import cors from "cors";
 import dns from "dns/promises";
 import net from "net";
 import smtpRoutes from "./routes/api.js"; // update path
+import { scrapeLinkedInProfile } from "./api/linkedInScrapper.js";
+
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -49,7 +51,17 @@ app.post("/verify", async (req, res) => {
   }
 });
 
-// app.listen(3001, () => {
-//   console.log(" Server is running on http://localhost:3001");
-// });
-export default app;
+app.post("/api/linkedin", async (req, res) => {
+  const { url } = req.body;
+  if (!url) return res.status(400).json({ error: "Missing URL" });
+
+  const data = await scrapeLinkedInProfile(url);
+  if (!data) return res.status(500).json({ error: "Failed to scrape" });
+
+  res.json(data);
+});
+
+app.listen(3001, () => {
+  console.log(" Server is running on http://localhost:3001");
+});
+// export default app;
