@@ -4,7 +4,10 @@ import dns from "dns/promises";
 import net from "net";
 import smtpRoutes from "./routes/api.js"; // update path
 import { scrapeLinkedInProfile } from "./api/linkedInScrapper.js";
-
+import * as cheerio from "cheerio";
+import axios from "axios";
+import puppeteer from "puppeteer";
+import { parse } from "url";
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -61,7 +64,14 @@ app.post("/api/linkedin", async (req, res) => {
   res.json(data);
 });
 
+
 app.listen(3001, () => {
   console.log(" Server is running on http://localhost:3001");
 });
 // export default app;
+
+
+
+
+
+
