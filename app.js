@@ -8,6 +8,8 @@ import * as cheerio from "cheerio";
 import axios from "axios";
 import puppeteer from "puppeteer";
 import { parse } from "url";
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -63,15 +65,8 @@ app.post("/api/linkedin", async (req, res) => {
 
   res.json(data);
 });
-
-
-app.listen(3001, () => {
-  console.log(" Server is running on http://localhost:3001");
+const port= process.env.PORT
+app.listen(port, () => {
+  console.log(`Server is running on ${port}` );
 });
 export default app;
-
-
-
-
-
-

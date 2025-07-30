@@ -1,11 +1,11 @@
 {
   "name": "email-verifier",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +15,7 @@
     "cheerio": "^1.1.0",
     "cors": "^2.8.5",
     "disposable-email-domains": "^1.0.62",
-    "dotenv": "^17.2.0",
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
     "puppeteer": "^24.15.0"
